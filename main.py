@@ -59,11 +59,10 @@ async def start_step(message, step_data):
     user_state[user_id] = {"cancel": False, "position_index": 0, "task": None, "step": step_data}
 
     await message.answer(
-        await message.answer(
-            f"Шаг {step_data['step']} — {step_data['duration_min']} минут.\n"
-            "Следи за временем и положением тела.\n"
-            "Если был перерыв — начни с шага “минус два” от последнего."
-        )
+        f"Шаг {step_data['step']} — {step_data['duration_min']} минут.
+Следи за временем и положением тела.
+"
+        f"Если был перерыв — начни с шага “минус два” от последнего."
     )
 
     async def run_positions():
