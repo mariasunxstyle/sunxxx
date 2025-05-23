@@ -17,7 +17,14 @@ def get_step_buttons():
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=3)
     for step in steps:
         minutes = int(step['duration_min']) if step['duration_min'].is_integer() else step['duration_min']
-        label = f"Шаг {step['step']} ({minutes}м)"
+        total = step['duration_min']
+        if total >= 60:
+            hours = int(total // 60)
+            mins = int(total % 60)
+            time_str = f"{hours} ч {mins} м" if mins else f"{hours} ч"
+        else:
+            time_str = f"{int(total)} м" if total.is_integer() else f"{total} м"
+        label = f"Шаг {step['step']} ({time_str})"
         keyboard.insert(types.KeyboardButton(label))
     keyboard.add(types.KeyboardButton("ℹ️ Инфо"))
     return keyboard
