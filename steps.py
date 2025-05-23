@@ -1,1 +1,1 @@
-steps = [{"step": 1, "duration_min": 8.0, "positions": [{"name": "Лицом вверх", "min": 1.5}, {"name": "На животе", "min": 1.5}, {"name": "Левый бок", "min": 1.0}, {"name": "Правый бок", "min": 1.0}, {"name": "В тени", "min": 3.0}]}]
+steps = [ ... ]
