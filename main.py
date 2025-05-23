@@ -46,7 +46,7 @@ async def send_welcome(message: types.Message):
         "Каждый новый день и после перерыва — возвращайся на 2 шага назад. "
         "Хочешь разобраться подробнее — жми ℹ️ Инфо. Там всё по делу.",
         reply_markup=get_step_buttons()
-    )
+        )
 
 @dp.message_handler(lambda message: message.text == "ℹ️ Инфо")
 async def send_info(message: types.Message):
@@ -59,7 +59,7 @@ async def send_info(message: types.Message):
         "С 11:00 до 17:00 — солнце более агрессивное. Если остаёшься на улице — надевай одежду, головной убор или используй SPF. "
         "Каждый новый день и после перерыва — возвращайся на 2 шага назад. "
         "Если есть вопросы — пиши: @sunxbeach_director."
-    )
+        )
 
 async def run_step_positions(message, step_data):
     user_id = message.from_user.id
