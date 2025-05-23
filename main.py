@@ -16,7 +16,8 @@ user_state = {}
 def get_step_buttons():
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=3)
     for step in steps:
-        label = f"Шаг {step['step']} ({step['duration_min']}м)"
+        minutes = int(step['duration_min']) if step['duration_min'].is_integer() else step['duration_min']
+        label = f"Шаг {step['step']} ({minutes}м)"
         keyboard.insert(types.KeyboardButton(label))
     keyboard.add(types.KeyboardButton("ℹ️ Инфо"))
     return keyboard
