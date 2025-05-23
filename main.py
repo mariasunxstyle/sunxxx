@@ -1,13 +1,10 @@
 import logging
-import os
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.dispatcher.filters import CommandStart
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
-from dotenv import load_dotenv
 from steps import steps
 
-load_dotenv()
-API_TOKEN = os.getenv("TOKEN")
+API_TOKEN = "7856116405:AAFWDJM4yfMydjmnI7m-iYnTdEEbcnq9d9Y"
 CHANNEL_ID = "@sunxstyle"
 
 logging.basicConfig(level=logging.INFO)
@@ -48,7 +45,7 @@ async def send_welcome(message: types.Message):
 
 @dp.message_handler(lambda message: message.text == "ℹ️ Инфо")
 async def send_info(message: types.Message):
-    await message.answer("ℹ️ Метод суперкомпенсации — это безопасный, пошаговый подход к загару. Он помогает коже адаптироваться к солнцу, снижая риск ожогов и пятен. Рекомендуем загорать с 7:00 до 11:00 и после 17:00 — в это время солнце мягкое, и при отсутствии противопоказаний можно загорать без SPF. Так кожа включает свою естественную защиту: вырабатывается меланин и гормоны адаптации. С 11:00 до 17:00 — солнце более агрессивное. Если остаёшься на улице — надевай одежду, головной убор или используй SPF. Каждый новый день и после перерыва — возвращайся на 2 шага назад. Это нужно, чтобы кожа не перегружалась и постепенно усиливала защиту. Если есть вопросы — пиши: @sunxbeach_director.")
+    await message.answer("ℹ️ Метод суперкомпенсации — это безопасный, пошаговый подход к загару. Он помогает коже адаптироваться к солнцу, снижая риск ожогов и пятен. Рекомендуем загорать с 7:00 до 11:00 и после 17:00 — в это время солнце мягкое, и при отсутствии противопоказаний можно загорать без SPF. Так кожа включает свою естественную защиту: вырабатывается меланин и гормоны адаптации. С 11:00 до 17:00 — солнце более агрессивное. Если остаёшься на улице — надевай одежду, головной убор или используй SPF. Каж...
 
 @dp.message_handler(lambda message: message.text.startswith("Шаг"))
 async def handle_step(message: types.Message):
