@@ -39,18 +39,17 @@ def get_control_buttons():
 
 @dp.message_handler(commands=['start'])
 async def send_welcome(message: types.Message):
-        await message.answer("Ошибка: пустое сообщение")
+    await message.answer(
         "Привет, солнце! ☀️ Ты в таймере по методу суперкомпенсации. "
         "Кожа адаптируется к солнцу постепенно — и загар становится ровным, глубоким и без ожогов. "
         "Начинай с шага 1. Даже если уже немного загорел(а), важно пройти путь с начала. "
         "Каждый новый день и после перерыва — возвращайся на 2 шага назад. "
         "Хочешь разобраться подробнее — жми ℹ️ Инфо. Там всё по делу.",
         reply_markup=get_step_buttons()
-        )
-
+    )
 @dp.message_handler(lambda message: message.text == "ℹ️ Инфо")
 async def send_info(message: types.Message):
-        await message.answer("Ошибка: пустое сообщение")
+    await message.answer(
         "ℹ️ Метод суперкомпенсации — это безопасный, пошаговый подход к загару. "
         "Он помогает коже адаптироваться к солнцу, снижая риск ожогов и пятен. "
         "Рекомендуем загорать с 7:00 до 11:00 и после 17:00 — в это время солнце мягкое, "
@@ -59,7 +58,7 @@ async def send_info(message: types.Message):
         "С 11:00 до 17:00 — солнце более агрессивное. Если остаёшься на улице — надевай одежду, головной убор или используй SPF. "
         "Каждый новый день и после перерыва — возвращайся на 2 шага назад. "
         "Если есть вопросы — пиши: @sunxbeach_director."
-        )
+    )
 
 async def run_step_positions(message, step_data):
     user_id = message.from_user.id
@@ -70,8 +69,7 @@ async def run_step_positions(message, step_data):
         "task": None,
     }
 
-        await message.answer("Ошибка: пустое сообщение")
-        f"Шаг {step_data['step']} — {step_data['duration_min']} минут.\n"
+    await message.answer("Ошибка: пустое сообщение")
 
     async def timer():
         for i, pos in enumerate(step_data["positions"]):
