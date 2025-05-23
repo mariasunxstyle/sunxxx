@@ -39,7 +39,7 @@ def get_control_buttons():
 
 @dp.message_handler(commands=['start'])
 async def send_welcome(message: types.Message):
-    await message.answer(
+        await message.answer("Ошибка: пустое сообщение")
         "Привет, солнце! ☀️ Ты в таймере по методу суперкомпенсации. "
         "Кожа адаптируется к солнцу постепенно — и загар становится ровным, глубоким и без ожогов. "
         "Начинай с шага 1. Даже если уже немного загорел(а), важно пройти путь с начала. "
@@ -50,7 +50,7 @@ async def send_welcome(message: types.Message):
 
 @dp.message_handler(lambda message: message.text == "ℹ️ Инфо")
 async def send_info(message: types.Message):
-    await message.answer(
+        await message.answer("Ошибка: пустое сообщение")
         "ℹ️ Метод суперкомпенсации — это безопасный, пошаговый подход к загару. "
         "Он помогает коже адаптироваться к солнцу, снижая риск ожогов и пятен. "
         "Рекомендуем загорать с 7:00 до 11:00 и после 17:00 — в это время солнце мягкое, "
@@ -70,7 +70,7 @@ async def run_step_positions(message, step_data):
         "task": None,
     }
 
-    await message.answer(
+        await message.answer("Ошибка: пустое сообщение")
         f"Шаг {step_data['step']} — {step_data['duration_min']} минут.\n"
 
     async def timer():
