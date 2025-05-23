@@ -72,16 +72,14 @@ async def run_step_positions(message, step_data):
 
     await message.answer(
         f"Шаг {step_data['step']} — {step_data['duration_min']} минут.\n"
-        "Следи за временем и положением тела.\n"
-        "Если был перерыв — начни с шага “минус два” от последнего."
-    )
 
     async def timer():
         for i, pos in enumerate(step_data["positions"]):
             if user_state[user_id]["cancel"]:
                 return
             user_state[user_id]["position_index"] = i
-            await message.answer(f"{pos['name']} — {pos['min']} мин", reply_markup=get_control_buttons())
+            minutes = int(pos['min']) if pos['min'].is_integer() else pos['min']
+            await message.answer(f"{pos['name']} — {minutes} мин", reply_markup=get_control_buttons())
             await asyncio.sleep(pos["min"] * 60)
         await message.answer("Шаг завершён! ☀️", reply_markup=get_step_buttons())
 
